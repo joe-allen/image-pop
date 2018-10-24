@@ -692,12 +692,12 @@ var staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/Import.vue?vue&type=template&id=7ea16102&shadow
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"545da000-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/HelloWorld.vue?vue&type=template&id=6e577320&
-var HelloWorldvue_type_template_id_6e577320_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"img-pop-container"},[_c('p',[_vm._v("Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit id qui neque voluptatem at sunt dicta nemo omnis impedit mollitia vero pariatur cumque cum quis magni, a eaque. Iure, veritatis?\n  Totam, voluptatibus doloribus! Architecto, quae? Delectus nostrum aperiam impedit molestiae quo! Fugiat assumenda eos molestias sunt, repellendus nulla! Ratione nam fugit illo ab deleniti excepturi fuga laudantium dolorem molestiae reiciendis!")]),_c('div',{staticClass:"img-pop-container-relative"},[_c('img',{staticClass:"img isInitialImg",class:{invisible : _vm.imageOpen},attrs:{"width":"250px","src":"https://d13p2xj50zkyqm.cloudfront.net/promos_4/LF/ALR/ALR_ChooseYourselfGuidetoWealth_0618/James-book-big.jpg","alt":"something"},on:{"click":_vm.open}})]),_c('div',{attrs:{"id":"inject_style"}}),_c('div',{staticClass:"img-pop-container-popped",class:{hide : !_vm.imageOpen}},[_c('div',{staticClass:"background-overlay"}),_c('img',{staticClass:"img isPoppedImg",attrs:{"src":"https://d13p2xj50zkyqm.cloudfront.net/promos_4/LF/ALR/ALR_ChooseYourselfGuidetoWealth_0618/James-book-big.jpg","alt":"something"},on:{"click":_vm.close}})]),_c('p',[_vm._v("Minus porro deleniti, consectetur laborum sit accusantium doloribus, incidunt dolore odio expedita quis quibusdam maxime necessitatibus nam consequatur? Nemo, distinctio. Aliquam laboriosam nulla officia provident, dolores quod ipsam quis voluptas.\n  Nostrum repellat minima veniam, quae maxime hic consequatur commodi incidunt officia eveniet ipsam et autem, optio quisquam delectus, itaque consectetur pariatur ratione voluptates. Maiores soluta atque, corrupti alias exercitationem ratione!")])])}
-var HelloWorldvue_type_template_id_6e577320_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"545da000-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/HelloWorld.vue?vue&type=template&id=1587f747&
+var HelloWorldvue_type_template_id_1587f747_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"img-pop-container"},[_c('p',[_vm._v("Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit id qui neque voluptatem at sunt dicta nemo omnis impedit mollitia vero pariatur cumque cum quis magni, a eaque. Iure, veritatis?\n  Totam, voluptatibus doloribus! Architecto, quae? Delectus nostrum aperiam impedit molestiae quo! Fugiat assumenda eos molestias sunt, repellendus nulla! Ratione nam fugit illo ab deleniti excepturi fuga laudantium dolorem molestiae reiciendis!")]),_c('div',{staticClass:"img-pop-container-relative"},[_c('img',{ref:"isInitialImg",staticClass:"img",class:{invisible : _vm.imageOpen},attrs:{"width":"250px","src":_vm.src,"alt":"something"},on:{"click":_vm.open}})]),_c('div',{ref:"injectStyle"}),_c('div',{staticClass:"img-pop-container-popped",class:{hide : !_vm.imageOpen}},[_c('div',{staticClass:"background-overlay"}),_c('img',{staticClass:"img isPoppedImg",attrs:{"src":"https://d13p2xj50zkyqm.cloudfront.net/promos_4/LF/ALR/ALR_ChooseYourselfGuidetoWealth_0618/James-book-big.jpg","alt":"something"},on:{"click":_vm.close}})]),_c('p',[_vm._v("Minus porro deleniti, consectetur laborum sit accusantium doloribus, incidunt dolore odio expedita quis quibusdam maxime necessitatibus nam consequatur? Nemo, distinctio. Aliquam laboriosam nulla officia provident, dolores quod ipsam quis voluptas.\n  Nostrum repellat minima veniam, quae maxime hic consequatur commodi incidunt officia eveniet ipsam et autem, optio quisquam delectus, itaque consectetur pariatur ratione voluptates. Maiores soluta atque, corrupti alias exercitationem ratione!")])])}
+var HelloWorldvue_type_template_id_1587f747_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/HelloWorld.vue?vue&type=template&id=6e577320&
+// CONCATENATED MODULE: ./src/components/HelloWorld.vue?vue&type=template&id=1587f747&
 
 // EXTERNAL MODULE: ./node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js
 var webcomponents_bundle = __webpack_require__("ec2e");
@@ -731,25 +731,28 @@ var webcomponents_bundle = __webpack_require__("ec2e");
   },
   data() {
     return {
-      imageOpen: false
+      imageOpen: false,
+      injectStyle: false
     }
   },
   methods: {
 
     open: function(e) {
 
-      let injectStyleEl = document.getElementById('inject_style');
-      let initialEl = document.querySelector('.isInitialImg');
-      let poppedEl = document.querySelector('.isPoppedImg');
+      // ui update, show image to pop
+      this.imageOpen = true;
+      this.injectStyle = true;
+
+      // let injectStyleEl = document.getElementById('injectStyle')
+      let injectStyleEl = this.$refs.injectStyle;
+      let initialEl = this.$refs.isInitialImg;
+      let poppedEl = this.$refs.isPoppedImg;
       let posImg = e.target.getBoundingClientRect();
       let winWidth = window.innerWidth;
       let imgNaturalWidth = e.target.naturalWidth;
       let goToLeft = (winWidth-imgNaturalWidth) / 2;
 
-      // ui update, show image to pop
-      this.imageOpen = true;
-
-      console.log("cool", initialEl.offsetWidth);
+      console.log("injectStyleEl", injectStyleEl);
 
       injectStyleEl.innerHTML = `
         <style>
@@ -758,7 +761,7 @@ var webcomponents_bundle = __webpack_require__("ec2e");
             top: ${posImg.top}px;
             left: ${posImg.left}px;
             animation: pop;
-            animation-duration: 1s;
+            animation-duration: 500ms;
             animation-iteration: 1;
             animation-fill-mode: forwards;
           }
@@ -772,10 +775,11 @@ var webcomponents_bundle = __webpack_require__("ec2e");
               left: ${posImg.left}px;
             }
             25% {
-              opacity: 1;
+              opacity: .5;
               background: green;
             }
             50% {
+              opacity: 1;
               background: green;
             }
             100% {
@@ -870,8 +874,8 @@ if (style0.__inject__) style0.__inject__(context)
 
 var component = normalizeComponent(
   components_HelloWorldvue_type_script_lang_js_,
-  HelloWorldvue_type_template_id_6e577320_render,
-  HelloWorldvue_type_template_id_6e577320_staticRenderFns,
+  HelloWorldvue_type_template_id_1587f747_render,
+  HelloWorldvue_type_template_id_1587f747_staticRenderFns,
   false,
   injectStyles,
   null,

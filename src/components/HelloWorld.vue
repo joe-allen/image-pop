@@ -3,9 +3,9 @@
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit id qui neque voluptatem at sunt dicta nemo omnis impedit mollitia vero pariatur cumque cum quis magni, a eaque. Iure, veritatis?
     Totam, voluptatibus doloribus! Architecto, quae? Delectus nostrum aperiam impedit molestiae quo! Fugiat assumenda eos molestias sunt, repellendus nulla! Ratione nam fugit illo ab deleniti excepturi fuga laudantium dolorem molestiae reiciendis!</p>
     <div class="img-pop-container-relative">
-      <img width="250px" :class="{invisible : imageOpen}" @click="open" src="https://d13p2xj50zkyqm.cloudfront.net/promos_4/LF/ALR/ALR_ChooseYourselfGuidetoWealth_0618/James-book-big.jpg" alt="something" class="img isInitialImg">
+      <img width="250px" :class="{invisible : imageOpen}" @click="open" :src="src" alt="something" class="img" ref="isInitialImg">
     </div>
-    <div id="inject_style"></div>
+    <div ref="injectStyle"></div>
     <div class="img-pop-container-popped" :class="{hide : !imageOpen}">
       <div class="background-overlay"></div>
       <img @click="close" src="https://d13p2xj50zkyqm.cloudfront.net/promos_4/LF/ALR/ALR_ChooseYourselfGuidetoWealth_0618/James-book-big.jpg" alt="something" class="img isPoppedImg">
@@ -26,25 +26,28 @@ export default {
   },
   data() {
     return {
-      imageOpen: false
+      imageOpen: false,
+      injectStyle: false
     }
   },
   methods: {
 
     open: function(e) {
 
-      let injectStyleEl = document.getElementById('inject_style');
-      let initialEl = document.querySelector('.isInitialImg');
-      let poppedEl = document.querySelector('.isPoppedImg');
+      // ui update, show image to pop
+      this.imageOpen = true;
+      this.injectStyle = true;
+
+      // let injectStyleEl = document.getElementById('injectStyle')
+      let injectStyleEl = this.$refs.injectStyle;
+      let initialEl = this.$refs.isInitialImg;
+      let poppedEl = this.$refs.isPoppedImg;
       let posImg = e.target.getBoundingClientRect();
       let winWidth = window.innerWidth;
       let imgNaturalWidth = e.target.naturalWidth;
       let goToLeft = (winWidth-imgNaturalWidth) / 2;
 
-      // ui update, show image to pop
-      this.imageOpen = true;
-
-      console.log("cool", initialEl.offsetWidth);
+      console.log("injectStyleEl", injectStyleEl);
 
       injectStyleEl.innerHTML = `
         <style>
@@ -53,7 +56,7 @@ export default {
             top: ${posImg.top}px;
             left: ${posImg.left}px;
             animation: pop;
-            animation-duration: 1s;
+            animation-duration: 500ms;
             animation-iteration: 1;
             animation-fill-mode: forwards;
           }
@@ -67,10 +70,11 @@ export default {
               left: ${posImg.left}px;
             }
             25% {
-              opacity: 1;
+              opacity: .5;
               background: green;
             }
             50% {
+              opacity: 1;
               background: green;
             }
             100% {
