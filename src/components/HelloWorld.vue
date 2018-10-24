@@ -48,8 +48,10 @@ export default {
     }
   },
   mounted () {
-    let body = document.getElementsByTagName('body');
-    this.body = body;
+    this.body = document.getElementsByTagName('body');
+    let component = this;
+
+    window.addEventListener('resize', () => { component.close() });
   },
   methods: {
 
@@ -89,25 +91,10 @@ export default {
       if(imgNaturalHeight > winHeight) {
         imgPortrait = false;
         poppedImgWidth = winHeight*.5;
-        console.log('yes img is height than window');
       }
 
+      // set img left corner position
       goToLeft = (winWidth-poppedImgWidth) / 2;
-
-      // setTimeout(function() {
-        // console.log('injectStyleEl', injectStyleEl);
-        // console.log('initialEl', initialEl);
-        // console.log('winWidth', winWidth);
-        // console.log('winHeight', winHeight);
-        // console.log('imgNaturalWidth', imgNaturalWidth);
-        // console.log('imgNaturalHeight', imgNaturalHeight);
-        // console.log('posImg', posImg);
-        // console.log('goToLeft', goToLeft);
-        console.log('poppedImgWidth', poppedImgWidth);
-        console.log('poppedImgHeight', poppedImgHeight);
-        console.log('imgPortrait', imgPortrait);
-      // }, 1000);
-
 
       injectStyleEl.innerHTML = `
         <style>

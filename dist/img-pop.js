@@ -692,12 +692,12 @@ var staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/Import.vue?vue&type=template&id=7ea16102&shadow
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"545da000-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/HelloWorld.vue?vue&type=template&id=1558f0c1&
-var HelloWorldvue_type_template_id_1558f0c1_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"img-pop-container"},[_c('div',{ref:"injectStyle"}),_c('div',{staticClass:"img-pop-container-relative"},[_c('img',{ref:"isInitialImg",staticClass:"img",class:{invisible : _vm.imageOpen},attrs:{"width":"250px","src":_vm.src,"alt":_vm.alt},on:{"click":_vm.open}})]),_c('div',{staticClass:"img-pop-container-popped",class:{hide : !_vm.imageOpen}},[_c('div',{staticClass:"opaqueOverlay"}),_c('div',{staticClass:"close",on:{"click":_vm.close}},[_c('span',{staticClass:"close_bar"},[_vm._v(" ")]),_c('span',{staticClass:"close_bar"},[_vm._v(" ")])]),_c('div',{staticClass:"web-component"},[_c('div',{staticClass:"web-component-img"},[_c('img',{staticClass:"img isPoppedImg",attrs:{"src":_vm.src,"alt":_vm.alt}})]),(_vm.title || _vm.text)?_c('div',{staticClass:"web-component-text"},[_c('h3',[_vm._v(_vm._s(_vm.title))]),_c('p',[_vm._v(_vm._s(_vm.text))])]):_vm._e()])])])}
-var HelloWorldvue_type_template_id_1558f0c1_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"545da000-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/HelloWorld.vue?vue&type=template&id=47dfb1c8&
+var HelloWorldvue_type_template_id_47dfb1c8_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"img-pop-container"},[_c('div',{ref:"injectStyle"}),_c('div',{staticClass:"img-pop-container-relative"},[_c('img',{ref:"isInitialImg",staticClass:"img",class:{invisible : _vm.imageOpen},attrs:{"width":"250px","src":_vm.src,"alt":_vm.alt},on:{"click":_vm.open}})]),_c('div',{staticClass:"img-pop-container-popped",class:{hide : !_vm.imageOpen}},[_c('div',{staticClass:"opaqueOverlay"}),_c('div',{staticClass:"close",on:{"click":_vm.close}},[_c('span',{staticClass:"close_bar"},[_vm._v(" ")]),_c('span',{staticClass:"close_bar"},[_vm._v(" ")])]),_c('div',{staticClass:"web-component"},[_c('div',{staticClass:"web-component-img"},[_c('img',{staticClass:"img isPoppedImg",attrs:{"src":_vm.src,"alt":_vm.alt}})]),(_vm.title || _vm.text)?_c('div',{staticClass:"web-component-text"},[_c('h3',[_vm._v(_vm._s(_vm.title))]),_c('p',[_vm._v(_vm._s(_vm.text))])]):_vm._e()])])])}
+var HelloWorldvue_type_template_id_47dfb1c8_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/HelloWorld.vue?vue&type=template&id=1558f0c1&
+// CONCATENATED MODULE: ./src/components/HelloWorld.vue?vue&type=template&id=47dfb1c8&
 
 // EXTERNAL MODULE: ./node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js
 var webcomponents_bundle = __webpack_require__("ec2e");
@@ -753,8 +753,10 @@ var webcomponents_bundle = __webpack_require__("ec2e");
     }
   },
   mounted () {
-    let body = document.getElementsByTagName('body');
-    this.body = body;
+    this.body = document.getElementsByTagName('body');
+    let component = this;
+
+    window.addEventListener('resize', () => { component.close() });
   },
   methods: {
 
@@ -794,25 +796,10 @@ var webcomponents_bundle = __webpack_require__("ec2e");
       if(imgNaturalHeight > winHeight) {
         imgPortrait = false;
         poppedImgWidth = winHeight*.5;
-        console.log('yes img is height than window');
       }
 
+      // set img left corner position
       goToLeft = (winWidth-poppedImgWidth) / 2;
-
-      // setTimeout(function() {
-        // console.log('injectStyleEl', injectStyleEl);
-        // console.log('initialEl', initialEl);
-        // console.log('winWidth', winWidth);
-        // console.log('winHeight', winHeight);
-        // console.log('imgNaturalWidth', imgNaturalWidth);
-        // console.log('imgNaturalHeight', imgNaturalHeight);
-        // console.log('posImg', posImg);
-        // console.log('goToLeft', goToLeft);
-        console.log('poppedImgWidth', poppedImgWidth);
-        console.log('poppedImgHeight', poppedImgHeight);
-        console.log('imgPortrait', imgPortrait);
-      // }, 1000);
-
 
       injectStyleEl.innerHTML = `
         <style>
@@ -909,8 +896,8 @@ if (style0.__inject__) style0.__inject__(context)
 
 var component = normalizeComponent(
   components_HelloWorldvue_type_script_lang_js_,
-  HelloWorldvue_type_template_id_1558f0c1_render,
-  HelloWorldvue_type_template_id_1558f0c1_staticRenderFns,
+  HelloWorldvue_type_template_id_47dfb1c8_render,
+  HelloWorldvue_type_template_id_47dfb1c8_staticRenderFns,
   false,
   injectStyles,
   null,
