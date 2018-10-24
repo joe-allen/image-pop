@@ -1,26 +1,22 @@
-# v3
+# Image Pop:
 
-## Project setup
-```
-npm install
-```
+A web component that can be use on any html page by including the script and element
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+script: `./img-pop.min.js`
+element: `<img-pop src='img.jpg' title='' text=''></img-pop>`
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## To Use:
 
-### Run your tests
-```
-npm run test
-```
+## Compatiblity:
+Edge 15 and above.
 
-### Lints and fixes files
-```
-npm run lint
-```
+Edge 15 and IE 11 and below do not have image animation, but will still display image (keep in mind, if you're targeting these browsers what you add to the `title` and `text` attributes should be considered since they will not be shown).
+
+---
+# Learned:
+- Building a universal web component with vue.
+
+# Struggled:
+
+# ToDo:
+Try to remove #app div

@@ -692,17 +692,31 @@ var staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/Import.vue?vue&type=template&id=7ea16102&shadow
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"545da000-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/HelloWorld.vue?vue&type=template&id=96eaba94&
-var HelloWorldvue_type_template_id_96eaba94_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"img-pop-container"},[_c('p',[_vm._v("Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit id qui neque voluptatem at sunt dicta nemo omnis impedit mollitia vero pariatur cumque cum quis magni, a eaque. Iure, veritatis?\n  Totam, voluptatibus doloribus! Architecto, quae? Delectus nostrum aperiam impedit molestiae quo! Fugiat assumenda eos molestias sunt, repellendus nulla! Ratione nam fugit illo ab deleniti excepturi fuga laudantium dolorem molestiae reiciendis!")]),_c('div',{staticClass:"img-pop-container-relative"},[_c('img',{ref:"isInitialImg",staticClass:"img",class:{invisible : _vm.imageOpen},attrs:{"width":"250px","src":_vm.src,"alt":"something"},on:{"click":_vm.open}})]),_c('div',{ref:"injectStyle"}),_c('div',{staticClass:"img-pop-container-popped",class:{hide : !_vm.imageOpen}},[_c('div',{staticClass:"background-overlay"}),_c('img',{staticClass:"img isPoppedImg",attrs:{"src":"https://d13p2xj50zkyqm.cloudfront.net/promos_4/LF/ALR/ALR_ChooseYourselfGuidetoWealth_0618/James-book-big.jpg","alt":"something"},on:{"click":_vm.close}})]),_c('p',[_vm._v("Minus porro deleniti, consectetur laborum sit accusantium doloribus, incidunt dolore odio expedita quis quibusdam maxime necessitatibus nam consequatur? Nemo, distinctio. Aliquam laboriosam nulla officia provident, dolores quod ipsam quis voluptas.\n  Nostrum repellat minima veniam, quae maxime hic consequatur commodi incidunt officia eveniet ipsam et autem, optio quisquam delectus, itaque consectetur pariatur ratione voluptates. Maiores soluta atque, corrupti alias exercitationem ratione!")])])}
-var HelloWorldvue_type_template_id_96eaba94_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"545da000-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/HelloWorld.vue?vue&type=template&id=1558f0c1&
+var HelloWorldvue_type_template_id_1558f0c1_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"img-pop-container"},[_c('div',{ref:"injectStyle"}),_c('div',{staticClass:"img-pop-container-relative"},[_c('img',{ref:"isInitialImg",staticClass:"img",class:{invisible : _vm.imageOpen},attrs:{"width":"250px","src":_vm.src,"alt":_vm.alt},on:{"click":_vm.open}})]),_c('div',{staticClass:"img-pop-container-popped",class:{hide : !_vm.imageOpen}},[_c('div',{staticClass:"opaqueOverlay"}),_c('div',{staticClass:"close",on:{"click":_vm.close}},[_c('span',{staticClass:"close_bar"},[_vm._v(" ")]),_c('span',{staticClass:"close_bar"},[_vm._v(" ")])]),_c('div',{staticClass:"web-component"},[_c('div',{staticClass:"web-component-img"},[_c('img',{staticClass:"img isPoppedImg",attrs:{"src":_vm.src,"alt":_vm.alt}})]),(_vm.title || _vm.text)?_c('div',{staticClass:"web-component-text"},[_c('h3',[_vm._v(_vm._s(_vm.title))]),_c('p',[_vm._v(_vm._s(_vm.text))])]):_vm._e()])])])}
+var HelloWorldvue_type_template_id_1558f0c1_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/HelloWorld.vue?vue&type=template&id=96eaba94&
+// CONCATENATED MODULE: ./src/components/HelloWorld.vue?vue&type=template&id=1558f0c1&
 
 // EXTERNAL MODULE: ./node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js
 var webcomponents_bundle = __webpack_require__("ec2e");
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/HelloWorld.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -726,56 +740,99 @@ var webcomponents_bundle = __webpack_require__("ec2e");
 /* harmony default export */ var HelloWorldvue_type_script_lang_js_ = ({
   name: "HelloWorld",
   props: {
-    msg: "",
-    src: ""
+    text: "",
+    title: "",
+    src: "",
+    alt: "",
   },
   data() {
     return {
       imageOpen: false,
-      injectStyle: false
+      injectStyle: false,
+      body: ''
     }
+  },
+  mounted () {
+    let body = document.getElementsByTagName('body');
+    this.body = body;
   },
   methods: {
 
     open: function(e) {
 
-      // ui update, show image to pop
+      // ui updates
       this.imageOpen = true;
       this.injectStyle = true;
+      this.body[0].style.overflow = 'hidden';
 
-      let injectStyleEl = this.$refs.injectStyle;
-      let initialEl = this.$refs.isInitialImg;
-      let poppedEl = this.$refs.isPoppedImg;
-      let posImg = e.target.getBoundingClientRect();
-      let winWidth = window.innerWidth;
-      let imgNaturalWidth = e.target.naturalWidth;
-      let goToLeft = (winWidth-imgNaturalWidth) / 2;
+      // initiate variables
+      let injectStyleEl = '';
+      let initialEl = '';
+      let winWidth = '';
+      let winHeight = ''
+      let imgNaturalWidth = '';
+      let imgNaturalHeight = '';
+      let posImg = '';
+      let goToLeft = '';
+      let poppedImgWidth = '';
+      let poppedImgHeight = '';
+      let imgPortrait = false;
 
-      console.log('injectStyleEl', injectStyleEl);
-      console.log('initialEl', initialEl);
-      console.log('poppedEl', poppedEl);
-      console.log('posImg', posImg);
-      console.log('winWidth', winWidth);
-      console.log('imgNaturalWidth', imgNaturalWidth);
-      console.log('goToLeft', goToLeft);
+      // set variables
+      injectStyleEl = this.$refs.injectStyle;
+      initialEl = this.$refs.isInitialImg;
+      winWidth = window.innerWidth;
+      winHeight = window.innerHeight;
+      imgNaturalWidth = e.target.naturalWidth;
+      imgNaturalHeight = e.target.naturalHeight;
+      posImg = e.target.getBoundingClientRect();
+      imgPortrait = false;
+
+      poppedImgWidth = (imgNaturalWidth > winWidth) ? winWidth-100 : imgNaturalWidth;
+      poppedImgHeight = (imgNaturalHeight > winHeight) ? winHeight-500 : imgNaturalHeight;
+
+      if(imgNaturalHeight > winHeight) {
+        imgPortrait = false;
+        poppedImgWidth = winHeight*.5;
+        console.log('yes img is height than window');
+      }
+
+      goToLeft = (winWidth-poppedImgWidth) / 2;
+
+      // setTimeout(function() {
+        // console.log('injectStyleEl', injectStyleEl);
+        // console.log('initialEl', initialEl);
+        // console.log('winWidth', winWidth);
+        // console.log('winHeight', winHeight);
+        // console.log('imgNaturalWidth', imgNaturalWidth);
+        // console.log('imgNaturalHeight', imgNaturalHeight);
+        // console.log('posImg', posImg);
+        // console.log('goToLeft', goToLeft);
+        console.log('poppedImgWidth', poppedImgWidth);
+        console.log('poppedImgHeight', poppedImgHeight);
+        console.log('imgPortrait', imgPortrait);
+      // }, 1000);
+
 
       injectStyleEl.innerHTML = `
         <style>
           .isPoppedImg {
             position: fixed;
             width: ${initialEl.offsetWidth}px;
+            height: ${initialEl.offsetHeight}px;
             top: ${posImg.top}px;
             left: ${posImg.left}px;
             animation: pop;
             animation-duration: 500ms;
-            animation-iteration: 1;
+            animation-iteration-count: 1;
             animation-fill-mode: forwards;
           }
           @keyframes pop {
             0% {
               opacity: 0;
               position: fixed;
-              width: ${initialEl.offsetWidth}px;
+              width: ${(imgPortrait) ? 'auto' : initialEl.offsetWidth+'px'};
+              height: ${(imgPortrait) ? initialEl.offsetHeight+'px' : 'auto'};
               top: ${posImg.top}px;
               left: ${posImg.left}px;
             }
@@ -787,74 +844,49 @@ var webcomponents_bundle = __webpack_require__("ec2e");
             }
             100% {
               position: fixed;
-              width: calc(${imgNaturalWidth}px);
+              width: ${(imgPortrait) ? 'auto' : poppedImgWidth+'px'};
+              height: ${(imgPortrait) ? poppedImgHeight+'px' : 'auto'};
+              margin: 0 auto;
               left: ${goToLeft}px;
+              top: 4em;
+            }
+          }
+          @media screen and (max-width: 600px) {
+            @keyframes pop {
+              0% {
+                opacity: 0;
+                position: fixed;
+                width: ${(imgPortrait) ? 'auto' : initialEl.offsetWidth+'px'};
+                height: ${(imgPortrait) ? initialEl.offsetHeight+'px' : 'auto'};
+                top: ${posImg.top}px;
+                left: ${posImg.left}px;
+              }
+              25% {
+                opacity: .5;
+              }
+              50% {
+                opacity: 1;
+              }
+              100% {
+                position: fixed;
+                width: ${(imgPortrait) ? 'auto' : poppedImgWidth+'px'};
+                height: ${(imgPortrait) ? poppedImgHeight+'px' : 'auto'};
+                margin: 0 auto;
+                left: ${goToLeft}px;
+                top: 10em;
+              }
             }
           }
         </style>
         `
-
-      // // prevent image from being shown immediently
-      // poppedEl.style.opacity = 0;
-      // poppedEl.style.position = "fixed";
-      // poppedEl.style.top = posImg.top + "px";
-      // poppedEl.style.left = posImg.left + "px";
-
-      // let getDifferenceToMove = goToLeft-posImg.left;
-      // let widthGrow = e.target.clientWidth;
-
-      // setTimeout(function() {
-
-      //   poppedEl.style.opacity = 1;
-
-      //   let updateWidth = setInterval(function() {
-
-      //     if(widthGrow < imgNaturalWidth) {
-      //       widthGrow = widthGrow+25;
-      //       poppedEl.style.width = widthGrow + "px";
-      //     }
-      //   }, 1);
-
-      //   poppedEl.style.width = e.target.naturalWidth+"px";
-      // }, 0);
-
-      // setTimeout(function() {
-
-      //   poppedEl.style.opacity = 1;
-      //   let limitLeft = goToLeft;
-
-      //   let updateLeft = setInterval(function() {
-
-      //     if(imgNaturalWidth < winWidth) {
-
-      //       if(posImg.left >= goToLeft) {
-      //         getDifferenceToMove = Math.floor(getDifferenceToMove)+80;
-      //         poppedEl.style.left = -(Math.floor(getDifferenceToMove)) + "px";
-
-      //         console.log('is more right');
-
-      //         if(Math.floor(-limitLeft) <= Math.floor(getDifferenceToMove)) {
-
-      //           clearInterval(updateLeft);
-      //         }
-      //       } else {
-      //         console.log('is more left');
-      //       }
-
-      //     } else {
-      //       console.log('passed 0');
-      //     }
-
-      //     // if(imgNaturalWidth < winWidth && widthGrow < imgNaturalWidth) {
-      //     //   clearInterval(updateWidth);
-      //     //   console.log('stopped');
-      //     // }
-
-      //   }, 10);
-      // }, 1);
     },
     close: function() {
       this.imageOpen = false;
+      this.body[0].style.overflow = 'initial';
+
+      // clear styles
+      let injectStyleEl = this.$refs.injectStyle;
+      injectStyleEl.innerHTML = "";
     }
 
   }
@@ -877,8 +909,8 @@ if (style0.__inject__) style0.__inject__(context)
 
 var component = normalizeComponent(
   components_HelloWorldvue_type_script_lang_js_,
-  HelloWorldvue_type_template_id_96eaba94_render,
-  HelloWorldvue_type_template_id_96eaba94_staticRenderFns,
+  HelloWorldvue_type_template_id_1558f0c1_render,
+  HelloWorldvue_type_template_id_1558f0c1_staticRenderFns,
   false,
   injectStyles,
   null,
@@ -1002,7 +1034,7 @@ exports = module.exports = __webpack_require__("2350")(false);
 
 
 // module
-exports.push([module.i, "\n.hide{display:none\n}\n.invisible{visibility:hidden\n}\n.img-pop-container-relative{float:right\n}\n.img-pop-container-popped,.img-pop-container-relative{border:0;margin:0;padding:0\n}\n.img-pop-container-popped{position:fixed;width:100%;height:100%\n}\n.img{border:0;margin:0;padding:0\n}", ""]);
+exports.push([module.i, "\n.hide{display:none\n}\n.invisible{visibility:hidden\n}\n.web-component{overflow:scroll;position:fixed;width:100%;height:100%;top:0;left:0\n}\n.web-component-img{position:absolute\n}\n.web-component-text{background-color:#fff;position:absolute;width:100vw;height:30%;top:80vh;z-index:1;padding:0 0 30px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-shadow:-4px -4px 14px hsla(0,0%,67.1%,.1);box-shadow:-4px -4px 14px hsla(0,0%,67.1%,.1)\n}\n.web-component-text p{width:80%;text-align:center;margin:0 auto\n}\n.opaqueOverlay{margin:0;cursor:auto;width:100%;height:100%;top:0;left:0;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;overflow-y:scroll;background-color:#fff;position:fixed;z-index:0;opacity:0;-webkit-animation:opaqueOverlay;animation:opaqueOverlay;-webkit-animation-duration:.25s;animation-duration:.25s;-webkit-animation-iteration-count:1;animation-iteration-count:1;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards\n}\n@-webkit-keyframes opaqueOverlay{\n0%{opacity:0\n}\nto{opacity:1\n}\n}\n@keyframes opaqueOverlay{\n0%{opacity:0\n}\nto{opacity:1\n}\n}\n.isPoppedImg{z-index:1\n}\n.img-pop-container-relative{float:right\n}\n.img-pop-container-popped,.img-pop-container-relative{border:0;margin:0;padding:0\n}\n.img-pop-container-popped{width:100%;height:100%\n}\n.img{border:0;margin:0;padding:0\n}\n.close{color:#383838;font-size:44px;width:60px;height:60px;position:fixed;top:0;right:20px;cursor:pointer;-webkit-animation:closeFlyIn;animation:closeFlyIn;-webkit-animation-duration:.3s;animation-duration:.3s;-webkit-animation-delay:.3s;animation-delay:.3s;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards;-webkit-backface-visibility:hidden;backface-visibility:hidden;margin:24px -124px 24px -24px;z-index:111111\n}\n.close .close_bar{background-color:#383838\n}\n.close .close_bar:first-child{position:absolute;width:4px;-webkit-animation:closeBar_One;animation:closeBar_One;-webkit-animation-duration:.25s;animation-duration:.25s;-webkit-animation-delay:.75s;animation-delay:.75s;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards;right:26px;top:-5px\n}\n.close .close_bar:nth-child(2){position:absolute;width:4px;-webkit-animation:closeBar_Two;animation:closeBar_Two;-webkit-animation-duration:.25s;animation-duration:.25s;-webkit-animation-delay:.75s;animation-delay:.75s;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards;right:26px;top:-5px\n}\n@-webkit-keyframes closeBar_One{\n0%{-webkit-transform:rotate(0);transform:rotate(0);opacity:0\n}\nto{opacity:1;-webkit-transform:rotate(45deg);transform:rotate(45deg);background-color:#383838\n}\n}\n@keyframes closeBar_One{\n0%{-webkit-transform:rotate(0);transform:rotate(0);opacity:0\n}\nto{opacity:1;-webkit-transform:rotate(45deg);transform:rotate(45deg);background-color:#383838\n}\n}\n@-webkit-keyframes closeBar_Two{\n0%{-webkit-transform:rotate(0);transform:rotate(0);opacity:0\n}\nto{opacity:1;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);background-color:#383838\n}\n}\n@keyframes closeBar_Two{\n0%{-webkit-transform:rotate(0);transform:rotate(0);opacity:0\n}\nto{opacity:1;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);background-color:#383838\n}\n}\n@-webkit-keyframes closeFlyIn{\n0%{-webkit-transform:rotate(45deg);transform:rotate(45deg);margin:24px -30px 24px -24px;opacity:0\n}\nto{-webkit-transform:rotate(-90deg);transform:rotate(-90deg);opacity:1;margin:24px 24px 24px -24px\n}\n}\n@keyframes closeFlyIn{\n0%{-webkit-transform:rotate(45deg);transform:rotate(45deg);margin:24px -30px 24px -24px;opacity:0\n}\nto{-webkit-transform:rotate(-90deg);transform:rotate(-90deg);opacity:1;margin:24px 24px 24px -24px\n}\n}", ""]);
 
 // exports
 
