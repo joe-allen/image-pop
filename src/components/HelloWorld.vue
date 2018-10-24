@@ -38,7 +38,6 @@ export default {
       this.imageOpen = true;
       this.injectStyle = true;
 
-      // let injectStyleEl = document.getElementById('injectStyle')
       let injectStyleEl = this.$refs.injectStyle;
       let initialEl = this.$refs.isInitialImg;
       let poppedEl = this.$refs.isPoppedImg;
@@ -47,11 +46,18 @@ export default {
       let imgNaturalWidth = e.target.naturalWidth;
       let goToLeft = (winWidth-imgNaturalWidth) / 2;
 
-      console.log("injectStyleEl", injectStyleEl);
+      console.log('injectStyleEl', injectStyleEl);
+      console.log('initialEl', initialEl);
+      console.log('poppedEl', poppedEl);
+      console.log('posImg', posImg);
+      console.log('winWidth', winWidth);
+      console.log('imgNaturalWidth', imgNaturalWidth);
+      console.log('goToLeft', goToLeft);
 
       injectStyleEl.innerHTML = `
         <style>
           .isPoppedImg {
+            position: fixed;
             width: ${initialEl.offsetWidth}px;
             top: ${posImg.top}px;
             left: ${posImg.left}px;
@@ -63,23 +69,20 @@ export default {
           @keyframes pop {
             0% {
               opacity: 0;
-              width: ${initialEl.offsetWidth}px;
-              background: red;
               position: fixed;
+              width: ${initialEl.offsetWidth}px;
               top: ${posImg.top}px;
               left: ${posImg.left}px;
             }
             25% {
               opacity: .5;
-              background: green;
             }
             50% {
               opacity: 1;
-              background: green;
             }
             100% {
-              width: calc(${imgNaturalWidth}px);
               position: fixed;
+              width: calc(${imgNaturalWidth}px);
               left: ${goToLeft}px;
             }
           }
@@ -163,7 +166,7 @@ export default {
 }
 .isPoppedImg {}
 .img-pop-container-relative {
-  /* float: right; */
+  float: right;
 }
 .img-pop-container-relative,
 .img-pop-container-popped {
