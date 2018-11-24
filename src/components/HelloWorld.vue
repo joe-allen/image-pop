@@ -3,7 +3,7 @@
     <div ref="injectStyle"></div>
 
     <div class="img-pop-container-relative">
-      <img width="250px" :class="{invisible : imageOpen}" @click="open" :src="src" :alt="alt" class="img" ref="isInitialImg">
+      <img width="100%" :class="{invisible : imageOpen}" @click="open" :src="src" :alt="alt" class="img" ref="isInitialImg">
     </div>
     <div class="img-pop-container-popped" :class="{hide : !imageOpen}">
 
@@ -128,7 +128,7 @@ export default {
               position: fixed;
               width: ${(imgPortrait) ? 'auto' : poppedImgWidth+'px'};
               height: ${(imgPortrait) ? poppedImgHeight+'px' : 'auto'};
-              margin: 0 auto;
+              margin: 100px auto;
               left: ${goToLeft}px;
               top: 4em;
             }
@@ -153,7 +153,7 @@ export default {
                 position: fixed;
                 width: ${(imgPortrait) ? 'auto' : poppedImgWidth+'px'};
                 height: ${(imgPortrait) ? poppedImgHeight+'px' : 'auto'};
-                margin: 0 auto;
+                margin: 100px auto;
                 left: ${goToLeft}px;
                 top: 10em;
               }
