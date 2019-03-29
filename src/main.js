@@ -1,13 +1,6 @@
-import Vue from "vue";
-import wrap from "@vue/web-component-wrapper";
-import App from "./components/HelloWorld.vue";
+import App from './js/app';
 
-const ImgPop = wrap(Vue, App);
-
-window.customElements.define("img-pop", ImgPop);
-
-Vue.config.productionTip = false;
-
-new Vue({
-  render: h => h(App)
-}).$mount("#app");
+if(typeof(lf_components) !== "undefined") {
+  let app = new App(lf_components);
+  app.init()
+}

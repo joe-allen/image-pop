@@ -1,20 +1,34 @@
 {
-  "name": "v3",
-  "version": "0.1.0",
-  "private": true,
+  "name": "v2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "serve": "parcel src/index.html",
+    "build": "parcel build src/index.html --no-minify --public-url ./",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@webcomponents/webcomponentsjs": "^2.1.3",
-    "vue": "^2.5.17"
+    "parcel-bundler": "^1.11.0",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2"
   },
   "devDependencies": {
-    "@vue/cli-plugin-eslint": "^3.0.5",
-    "@vue/cli-service": "^3.0.5",
-    "@vue/eslint-config-prettier": "^3.0.5",
-    "vue-template-compiler": "^2.5.17"
+    "@babel/core": "^7.3.3",
+    "@babel/preset-react": "^7.0.0",
+    "@fullhuman/postcss-purgecss": "^1.1.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-react-css-modules": "^5.0.0",
+    "postcss": "^6.0.23",
+    "postcss-scss": "^2.0.0",
+    "postcss-uncss": "^0.16.1",
+    "rucksack-css": "^1.0.2",
+    "sass": "^1.17.0",
+    "tailwindcss": "0.7.4",
+    "uncss": "^0.16.2"
   }
 }
